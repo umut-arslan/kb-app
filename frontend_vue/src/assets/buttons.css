@@ -1,0 +1,22 @@
+.rounded_kb {
+    line-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--kb-red);
+    border: none;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+.square_kb {
+    line-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--kb-red);
+    border: none;
+    border-radius: 10%;
+    height: 50px;
+    width: 50px;
+}

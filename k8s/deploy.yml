@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: entwicklungstemplate-deployment
+  labels:
+    app : entwicklungstemplate
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: entwicklungstemplate
+  template:
+    metadata:
+      labels:
+        app: entwicklungstemplate
+      annotations:
+        co.elastic.logs.entwicklungstemplate/json.keys_under_root: "true"
+        co.elastic.logs.entwicklungstemplate/json.add_error_key: "true"
+        co.elastic.logs.entwicklungstemplate/json.message_key: "message"
+    spec:
+      initContainers:
+        - name: liquibase
+          image: 'ghcr.io/klosebrothers/entwicklungstemplate_liquibase:latest'
+          env:
+            - name: POSTGRES_URL
+              value: 'jdbc:postgresql://kb-postgres-db:5432/entwicklungstemplate'
+          envFrom:
+            - secretRef:
+                name: kb-postgres-db-liquibase-user-creds
+                optional: false
+      containers:
+        - name: entwicklungstemplate
+          image: 'ghcr.io/klosebrothers/entwicklungstemplate:latest'
+          imagePullPolicy: IfNotPresent
+          terminationMessagePolicy: FallbackToLogsOnError
+          env:
+            - name: BASE_URL
+              value: 'https://entwicklungstemplate.klosebrothers.de'
+          envFrom:
+            - secretRef:
+                name: entwicklungstemplate-oauth
+                optional: false
+            - secretRef:
+                name: kb-entwicklungstemplate-db-user-creds
+                optional: false
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: 256M
+              cpu: '0.1'
+            limits:
+              memory: 256M
+              cpu: '0.1'
+      imagePullSecrets:
+        - name: kb-github-registry-secret

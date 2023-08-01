@@ -1,0 +1,3 @@
+*
+!/backend_spring/target/*.jar
+!backend_spring/src/main/resources/db/*

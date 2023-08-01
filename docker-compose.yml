@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+  postgresdb:
+    image: 'postgres:latest'
+    container_name: 'postgresdb'
+    environment:
+      - POSTGRES_DB=entwicklungstemplate
+    ports:
+      - '5432:5432'
+    restart: always
+    env_file:
+      - .env
+  initcontainer:
+    container_name: 'initliquibase'
+    build:
+      context: .
+      dockerfile: Dockerfile_liquibase
+    environment:
+      - POSTGRES_URL=jdbc:postgresql://postgresdb:5432/entwicklungstemplate
+      - APP_USER=testuser
+      - APP_PASSWORD=testpassword
+    depends_on:
+      - postgresdb
+    env_file:
+      - .env
