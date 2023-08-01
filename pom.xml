@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.klosebrothers</groupId>
-    <artifactId>entwicklungstemplate</artifactId>
+    <artifactId>kb-app</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
@@ -15,7 +15,7 @@
     </modules>
 
     <build>
-        <finalName>Entwicklungstemplate</finalName>
+        <finalName>kb-app</finalName>
     </build>
 
 </project>

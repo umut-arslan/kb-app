@@ -78,7 +78,7 @@ jobs:
 #        uses: sonarsource/sonarqube-scan-action@master
 #        with:
 #          args: >
-#            -Dsonar.projectKey=entwicklungstemplate
+#            -Dsonar.projectKey=kb-app
 #            -Dsonar.sources=backend_spring/src
 #            -Dsonar.java.binaries=backend_spring/target
 #            -Dsonar.language=java

@@ -47,7 +47,7 @@ describe('Config crud test', () => {
     });
 
     it('renders ConfigCrud titles', () => {
-        expect(wrapper.text()).toContain('Entwicklungstemplate');
+        expect(wrapper.text()).toContain('kb-app');
         expect(wrapper.text()).toContain('Search Config by Key');
     });
 

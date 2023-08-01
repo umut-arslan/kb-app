@@ -16,7 +16,7 @@ public class Setup {
         renamePackage(new File(root + "backend_spring/src/test/java/com/kb/template"),
                 new File(root + "backend_spring/src/test/java/com/kb/" + args[0]));
 
-        // rename entwicklungstemplate occurances to given arg
+        // rename kb-app occurances to given arg
         String[] files = {"frontend_vue/pom.xml", "Dockerfile",
                 ".github/workflows/ci-cd_job.yml", "pom.xml",
                 "k8s/deploy.yml", "k8s/cert-manager.yml",
@@ -30,8 +30,8 @@ public class Setup {
             Charset charset = StandardCharsets.UTF_8;
 
             String content = new String(Files.readAllBytes(path), charset);
-            content = content.replaceAll("entwicklungstemplate", args[0]);
-            content = content.replaceAll("Entwicklungstemplate", args[0]);
+            content = content.replaceAll("kb-app", args[0]);
+            content = content.replaceAll("kb-app", args[0]);
             Files.write(path, content.getBytes(charset));
         }
     }

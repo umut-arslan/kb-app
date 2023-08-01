@@ -1,7 +1,7 @@
 describe('test app initialization', () => {
   it('visits the app root url', () => {
     cy.visit('/')
-    cy.contains('h1', 'Entwicklungstemplate')
+    cy.contains('h1', 'kb-app')
   })
   it('get request on mount', () => {
     cy.intercept('GET', '/api/configs/user', []).as('getConfigs')

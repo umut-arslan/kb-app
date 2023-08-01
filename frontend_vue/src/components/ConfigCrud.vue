@@ -2,7 +2,7 @@
   <div id='app'>
     <div>
       <div class='header'>
-        <h1 style='font-family: Arial,serif; font-size: 40px'>Entwicklungstemplate</h1>
+        <h1 style='font-family: Arial,serif; font-size: 40px'>kb-app</h1>
       </div>
       <div>
         <h2>Search Config by Key</h2>

@@ -1,13 +1,13 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: letsencrypt-entwicklungstemplate-prod
+  name: letsencrypt-kb-app-prod
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
     email: k8s_admins@klosebrothers.de
     privateKeySecretRef:
-      name: letsencrypt-entwicklungstemplate-prod
+      name: letsencrypt-kb-app-prod
     solvers:
       - http01:
           ingress:

@@ -67,8 +67,8 @@ jobs:
         push: true
         file: Dockerfile
         tags: |
-          ghcr.io/klosebrothers/entwicklungstemplate:${{ github.sha }}
-          ghcr.io/klosebrothers/entwicklungstemplate:latest
+          ghcr.io/klosebrothers/kb-app:${{ github.sha }}
+          ghcr.io/klosebrothers/kb-app:latest
     - name: build and push liquibase container image
       uses: docker/build-push-action@v4
       with:
@@ -76,8 +76,8 @@ jobs:
         file: Dockerfile_liquibase
         push: true
         tags: |
-          ghcr.io/klosebrothers/entwicklungstemplate_liquibase:${{ github.sha }}
-          ghcr.io/klosebrothers/entwicklungstemplate_liquibase:latest
+          ghcr.io/klosebrothers/kb-app_liquibase:${{ github.sha }}
+          ghcr.io/klosebrothers/kb-app_liquibase:latest
 
   deploy-to-k8s:
     runs-on: githubrunner-kb-bi
@@ -102,8 +102,8 @@ jobs:
           manifests: |
             ./k8s/deploy.yml
           images: |
-            ghcr.io/klosebrothers/entwicklungstemplate:${{ github.sha }}
-            ghcr.io/klosebrothers/entwicklungstemplate_liquibase:${{ github.sha }}
+            ghcr.io/klosebrothers/kb-app:${{ github.sha }}
+            ghcr.io/klosebrothers/kb-app_liquibase:${{ github.sha }}
 
   tag-deployed-commit:
     runs-on: githubrunner-kb-bi
@@ -120,6 +120,6 @@ jobs:
             github.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: "refs/tags/entwicklungstemplate-${{steps.date.outputs.date}}",
+              ref: "refs/tags/kb-app-${{steps.date.outputs.date}}",
               sha: context.sha
             })

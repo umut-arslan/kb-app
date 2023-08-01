@@ -11,7 +11,7 @@
 	<groupId>org.klosebrothers</groupId>
 	<artifactId>backend_spring</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<description>Entwicklungstemplate mit Spring Boot</description>
+	<description>kb-app mit Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -134,7 +134,7 @@
 				<configuration>
 					<outputChangeLogFile>src/main/resources/db/changelogs/generated_changelog.xml</outputChangeLogFile>
 					<driver>org.postgresql.Driver</driver>
-					<url>jdbc:postgresql://localhost:5432/entwicklungstemplate</url>
+					<url>jdbc:postgresql://localhost:5432/kb-app</url>
 					<username>postgres</username>
 					<password>postgres</password>
 					<verbose>true</verbose>

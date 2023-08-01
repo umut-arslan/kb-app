@@ -1,4 +1,4 @@
-# Entwicklungstemplate
+# kb-app
 This is a spring and vue template for developers which is configured to be
 deployed and checks for vulnerabilities and more.
 
@@ -42,16 +42,16 @@ Click on **Use this template** to create your own Repository with this project a
 **Alternative:**
 If you have an existing Repository then clone this project and copy it to your repository.
 ````
-git clone https://github.com/klosebrothers/entwicklungstemplate
+git clone https://github.com/klosebrothers/kb-app
 ````
 
-Run [Setup.java](backend_spring/src/main/resources/Setup.java) in (make sure java is installed) to rename all 'entwicklungstemplate' occurrences with your project name
+Run [Setup.java](backend_spring/src/main/resources/Setup.java) in (make sure java is installed) to rename all 'kb-app' occurrences with your project name
 ````
 java .\Setup.java [name of your project]
 ````
 
 **Alternative:**
-Search for all 'entwicklungstemplate' occurrences and replace with your project name in your IDE.
+Search for all 'kb-app' occurrences and replace with your project name in your IDE.
 
 
 Builds the front- and backend

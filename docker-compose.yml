@@ -5,7 +5,7 @@ services:
     image: 'postgres:latest'
     container_name: 'postgresdb'
     environment:
-      - POSTGRES_DB=entwicklungstemplate
+      - POSTGRES_DB=kb-app
     ports:
       - '5432:5432'
     restart: always
@@ -17,7 +17,7 @@ services:
       context: .
       dockerfile: Dockerfile_liquibase
     environment:
-      - POSTGRES_URL=jdbc:postgresql://postgresdb:5432/entwicklungstemplate
+      - POSTGRES_URL=jdbc:postgresql://postgresdb:5432/kb-app
       - APP_USER=testuser
       - APP_PASSWORD=testpassword
     depends_on:

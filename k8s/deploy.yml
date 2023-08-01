@@ -1,49 +1,49 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: entwicklungstemplate-deployment
+  name: kb-app-deployment
   labels:
-    app : entwicklungstemplate
+    app : kb-app
 spec:
   replicas: 1
   strategy:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: entwicklungstemplate
+      app: kb-app
   template:
     metadata:
       labels:
-        app: entwicklungstemplate
+        app: kb-app
       annotations:
-        co.elastic.logs.entwicklungstemplate/json.keys_under_root: "true"
-        co.elastic.logs.entwicklungstemplate/json.add_error_key: "true"
-        co.elastic.logs.entwicklungstemplate/json.message_key: "message"
+        co.elastic.logs.kb-app/json.keys_under_root: "true"
+        co.elastic.logs.kb-app/json.add_error_key: "true"
+        co.elastic.logs.kb-app/json.message_key: "message"
     spec:
       initContainers:
         - name: liquibase
-          image: 'ghcr.io/klosebrothers/entwicklungstemplate_liquibase:latest'
+          image: 'ghcr.io/klosebrothers/kb-app_liquibase:latest'
           env:
             - name: POSTGRES_URL
-              value: 'jdbc:postgresql://kb-postgres-db:5432/entwicklungstemplate'
+              value: 'jdbc:postgresql://kb-postgres-db:5432/kb-app'
           envFrom:
             - secretRef:
                 name: kb-postgres-db-liquibase-user-creds
                 optional: false
       containers:
-        - name: entwicklungstemplate
-          image: 'ghcr.io/klosebrothers/entwicklungstemplate:latest'
+        - name: kb-app
+          image: 'ghcr.io/klosebrothers/kb-app:latest'
           imagePullPolicy: IfNotPresent
           terminationMessagePolicy: FallbackToLogsOnError
           env:
             - name: BASE_URL
-              value: 'https://entwicklungstemplate.klosebrothers.de'
+              value: 'https://kb-app.klosebrothers.de'
           envFrom:
             - secretRef:
-                name: entwicklungstemplate-oauth
+                name: kb-app-oauth
                 optional: false
             - secretRef:
-                name: kb-entwicklungstemplate-db-user-creds
+                name: kb-kb-app-db-user-creds
                 optional: false
           ports:
             - containerPort: 8080
