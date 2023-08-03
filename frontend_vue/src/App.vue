@@ -1,10 +1,5 @@
 <script setup lang='ts'>
 import UserLogin from '@/components/UserLogin.vue'
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js', { scope: '/' })
-  })
-}
 </script>
 
 <template>

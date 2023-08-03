@@ -11,23 +11,25 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       devOptions: {
-        enabled: true
+        enabled: false
       },
-      injectRegister: 'inline',
-      includeAssets: ['favicon.ico', 'large.png', 'small.png'],
+      injectRegister: 'script',
+      useCredentials: true,
+      includeAssets: ['favicon.ico', 'large.png', 'small.png', 'robots.txt'],
       manifest: {
         name: 'kb-app',
         short_name: 'kbapp',
         description: 'klose brothers GmbH internal App',
         theme_color: '#AA0A37',
+        start_url: "/",
         icons: [
           {
-            src: '/src/assets/small.png',
+            src: '/small.png',
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: '/src/assets/large.png',
+            src: '/large.png',
             sizes: '512x512',
             type: 'image/png'
           }
