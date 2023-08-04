@@ -13,7 +13,7 @@ export default defineConfig({
       devOptions: {
         enabled: false
       },
-      injectRegister: 'script',
+      injectRegister: "auto",
       useCredentials: true,
       includeAssets: ['favicon.ico', 'large.png', 'small.png', 'robots.txt'],
       manifest: {
