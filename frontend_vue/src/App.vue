@@ -1,5 +1,9 @@
 <script setup lang='ts'>
 import UserLogin from '@/components/UserLogin.vue'
+import {registerServiceWorker} from './service/ServiceWorker/RegisterServiceWorker'
+
+Notification.requestPermission()
+registerServiceWorker()
 </script>
 
 <template>
