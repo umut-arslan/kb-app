@@ -46,7 +46,7 @@ jobs:
       working-directory: ./backend_spring/target
       run: java -jar -Dspring.profiles.active=test backend_spring-1.0-SNAPSHOT.jar &
     - name: run cypress tests
-      uses: cypress-io/github-action@v4
+      uses: cypress-io/github-action@v6
       with:
         install: false
         working-directory: ./frontend_vue
