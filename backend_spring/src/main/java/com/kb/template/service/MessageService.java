@@ -22,10 +22,10 @@ import java.util.stream.Collectors;
 @Service
 public class MessageService {
 
-    @Value("${vapid.public.key}")
-    private String publicKey;
-    @Value("${vapid.private.key}")
-    private String privateKey;
+//    @Value(value = "${VAPID_PUBLIC_KEY}")
+    private final String publicKey = "BEuWRQayrLZbxeiplaWpUFHA-UBT89EtYJvwcWQ-q4WPsFmaE-nrFyxQ5Zz1UbrAWyEDWG34Te8bRfY9Au6Cc74";
+//    @Value(value = "${VAPID_PRIVATE_KEY}")
+    private final String privateKey = "ZWKaVCWJtCsNDj4uPWBOtGVdND7u7BnnN1G5G9VUvLg";
 
     private PushService pushService;
     private List<Subscription> subscriptions = new ArrayList<>();

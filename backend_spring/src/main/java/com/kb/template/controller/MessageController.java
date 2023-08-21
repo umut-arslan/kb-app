@@ -5,11 +5,10 @@ import jakarta.annotation.Nonnull;
 import nl.martijndwars.webpush.Subscription;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/push")
 public class MessageController {
     @Autowired
@@ -21,7 +20,7 @@ public class MessageController {
     }
 
     @GetMapping("/subscribe")
-    public void subscribe(Subscription subscription) {
+    public void subscribe(@RequestParam Subscription subscription) {
         messageService.subscribe(subscription);
     }
 
