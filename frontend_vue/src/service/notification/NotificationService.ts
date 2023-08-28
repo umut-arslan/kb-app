@@ -22,6 +22,13 @@ export async function subscribe() {
     })
     if (subscription) {
       console.log("subscribed");
+      const publicKey = await axios.get(`http://localhost:8080/api/push/subscribe`, {
+        params: {
+          subscription: JSON.parse(JSON.stringify(subscription)),
+        }
+      });
+    } else {
+      console.log("not subscribed");
     }
   }
 

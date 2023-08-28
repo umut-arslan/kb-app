@@ -1,6 +1,5 @@
 <script setup lang='ts'>
 import UserLogin from '@/components/UserLogin.vue'
-import {registerServiceWorker} from '@/service/serviceWorker/RegisterServiceWorker'
 import {subscribe} from "@/service/notification/NotificationService";
 
 // registerServiceWorker();
