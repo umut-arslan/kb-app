@@ -7,6 +7,7 @@ import nl.martijndwars.webpush.Subscription;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.jose4j.lang.JoseException;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 @Service
+@EnableScheduling
 public class MessageService {
 
 //    @Value(value = "${VAPID_PUBLIC_KEY}")
@@ -60,7 +62,7 @@ public class MessageService {
         }
     }
 
-    @Scheduled(fixedRate = 15000)
+    @Scheduled(fixedRate = 10000)
     private void sendNotifications() {
         System.out.println("Sending notifications to all subscribers");
 

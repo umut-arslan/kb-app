@@ -11,9 +11,10 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       devOptions: {
-        enabled: true
+        enabled: true,
+        type: module,
       },
-      injectRegister: "script",
+      injectRegister: "inline",
       useCredentials: true,
       includeAssets: ['favicon.ico', 'large.png', 'small.png', 'robots.txt'],
       manifest: {

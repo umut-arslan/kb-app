@@ -1,28 +1,21 @@
-self.addEventListener("push", (e) => {
-  const data = e.data?.json();
-  if (data) {
-    self.registration.showNotification(data.title, {
-      body: data.body,
-    });
-  }
-});
+self.addEventListener('push',function(e){
+  let data = e.data.json();
+  console.log(data);
 
-self.addEventListener("notificationclick", (e) => {
-  e.notification.close();
-  e.waitUntil(focusOrOpenWindow());
-});
+  const options = {
+    body: data.body, // You can add the body from your data
+  };
 
-async function focusOrOpenWindow() {
-  const url = new URL("/", self.location.origin).href;
+  e.waitUntil(
+    self.registration.showNotification(data.title, options).then(() => {
+      console.log("Notification shown successfully");
+    }));
+})
 
-  const allWindows = await self.clients.matchAll({
-    type: "window",
-  });
-  const appWindow = allWindows.find((w) => w.url === url);
+self.addEventListener('load', ()=>{
+  console.log("I got loaded")
+})
 
-  if (appWindow) {
-    return appWindow.focus();
-  } else {
-    return self.clients.openWindow(url);
-  }
-}
+self.addEventListener('fetching', ()=>{
+  console.log("I got loaded")
+})

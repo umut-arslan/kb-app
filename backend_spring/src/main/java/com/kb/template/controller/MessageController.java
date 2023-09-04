@@ -19,8 +19,9 @@ public class MessageController {
         return messageService.getPublicKey();
     }
 
-    @GetMapping("/subscribe")
-    public void subscribe(@RequestParam Subscription subscription) {
+    @PostMapping("/subscribe")
+    public void subscribe(@RequestBody Subscription subscription) {
+//        System.out.println(subscription);
         messageService.subscribe(subscription);
     }
 
