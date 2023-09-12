@@ -55,7 +55,7 @@ jobs:
         browser: electron
 
     - name: login to github registry
-      uses: docker/login-action@v2
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -86,7 +86,7 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v3
       - name: login to github registry
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
