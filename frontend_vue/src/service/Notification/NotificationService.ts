@@ -15,12 +15,13 @@ export async function subscribe() {
         endpoint: json['endpoint'],
         keys: json['keys']
       });
+      console.log("Subscribed successfully to the server")
       const publicKey = await axios.post(`/api/push/subscribe`, {
           endpoint: json['endpoint'],
           keys: json['keys']
       });
     } else {
-      console.log("not subscribed");
+      console.log("Couldn't subscribe to the server");
     }
   }
 

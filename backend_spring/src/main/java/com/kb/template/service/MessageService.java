@@ -62,7 +62,15 @@ public class MessageService {
         }
     }
 
-    @Scheduled(fixedRate = 10000)
+    public void sendToSubscribers(String message) {
+        System.out.println("Sending notifications" + message);
+
+        subscriptions.forEach(subscription -> {
+            sendNotification(subscription, String.format(message, LocalTime.now()));
+        });
+    }
+
+//    @Scheduled(fixedRate = 10000)
     private void sendNotifications() {
         System.out.println("Sending notifications to all subscribers");
 

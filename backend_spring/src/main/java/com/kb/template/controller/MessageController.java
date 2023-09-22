@@ -25,6 +25,12 @@ public class MessageController {
         messageService.subscribe(subscription);
     }
 
+    @PostMapping("/send")
+    public void sendToSubscribers(@RequestBody String message) {
+//        System.out.println(subscription);
+        messageService.sendToSubscribers(message);
+    }
+
     @GetMapping("/unsubscribe")
     public void unsubscribe(String endpoint) {
         messageService.unsubscribe(endpoint);

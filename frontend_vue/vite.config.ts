@@ -10,10 +10,6 @@ export default defineConfig({
   plugins: [
     VitePWA({
       registerType: 'autoUpdate',
-      devOptions: {
-        enabled: true,
-        type: module,
-      },
       injectRegister: "inline",
       useCredentials: true,
       includeAssets: ['favicon.ico', 'large.png', 'small.png', 'robots.txt'],

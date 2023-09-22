@@ -1,4 +1,5 @@
 self.addEventListener('push',function(e){
+  console.log("Ich bin in dem getriggerten event")
   let data = e.data.json();
   console.log(data);
 
@@ -19,3 +20,4 @@ self.addEventListener('load', ()=>{
 self.addEventListener('fetching', ()=>{
   console.log("I got loaded")
 })
+

@@ -25,7 +25,7 @@ public class ConfigService {
 
     public ConfigDto saveConfig(ConfigDto configDto, User user){
         Config config = modelMapper.mapToEntity(configDto, user);
-        return modelMapper.mapToDto(configRepository.save(configQ));
+        return modelMapper.mapToDto(configRepository.save(config));
     }
 
     public ConfigDto updateConfig(ConfigDto configDto, User user){

@@ -2,7 +2,7 @@
 import UserLogin from '@/components/UserLogin.vue'
 import {subscribe} from "@/service/Notification/NotificationService";
 
-subscribe();
+subscribe()
 </script>
 
 <template>
